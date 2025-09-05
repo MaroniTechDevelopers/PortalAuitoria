@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Clientes - Grupo Maroni</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/cadastros.css" /> 
+  </head>
+  <body class="body-clientes">
+    <header class="height-header d-flex m-0 container-color b-shadow">
+      <button class="menu-icon" id="menuToggle">
+        <img src="images/menu icon.png" alt="Menu Icon" class="menu-icon-img" />
+      </button>
+      <div class="div-h-form">
+        <a href="index.html">
+          <img src="images/LogoMaroni.png" alt="LogoMaroni" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Overlay para fechar a sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="images/LogoMaroni.png" alt="LogoMaroni" class="sidebar-logo" />
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="Home.html" class="active">
+            <i class="fas fa-home"></i>Menu Inicial
+        </a>
+        <a href="#" id="dropdownCadastro" class="has-dropdown">
+            <i class="fas fa-database"></i>Cadastros
+        </a>
+        <div class="dropdown-container" id="dropdownContainer">
+            <a href="clientes.html"> <i class="fas fa-users"></i>Clientes </a>
+            <a href="Auditor.html">
+            <i class="fas fa-user-check"></i>Auditores
+            </a>
+        </div>
+        <a href="#"> <i class="fas fa-chart-bar"></i>Dashboards </a>
+        <a href="#"> <i class="fas fa-headset"></i>Suporte </a>
+        <!-- Novo item adicionado -->
+        <a href="Historico.html"> 
+            <i class="fas fa-file-alt"></i>Histórico de Relatórios
+        </a>
+    </nav>
+    </div>
+
+    <main class="content-container">
+      <div class="breadcrumb">
+        <a href="Home.html">Home</a> / <a href="#">Cadastros</a> /
+        <span>Clientes</span>
+      </div>
+
+      <div class="main-card">
+        <div class="header-card">
+          <h2>Cadastro de Clientes</h2>
+        </div>
+        <form class="form-grid-clientes" id="formCadastro">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Digite o nome do cliente"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="cnpj">CNPJ</label>
+            <input
+              type="text"
+              id="cnpj"
+              name="cnpj"
+              placeholder="00.000.000/0000-00"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="cliente@empresa.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input
+              type="text"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000"
+              required
+            />
+          </div>
+          <div class="form-group full-width">
+            <label for="endereco">Endereço</label>
+            <input
+              type="text"
+              id="endereco"
+              name="endereco"
+              placeholder="Digite o endereço completo"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="responsavel">Responsável</label>
+            <input
+              type="text"
+              id="responsavel"
+              name="responsavel"
+              placeholder="Nome do responsável"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="situacao">Situação</label>
+            <select id="situacao" name="situacao">
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+          <div class="form-action">
+            <button type="submit" class="btn-submit">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="main-card mt-20">
+        <div class="header-card">
+          <h2>Consulta de Clientes</h2>
+        </div>
+        <form class="form-grid-clientes" id="formConsulta">
+          <div class="form-group full-width">
+            <label for="consulta-cliente"
+              >Buscar cliente por nome, CNPJ ou responsável</label
+            >
+            <input
+              type="text"
+              id="consulta-cliente"
+              name="consulta-cliente"
+              placeholder="Nome, CNPJ ou responsável"
+            />
+          </div>
+          <div class="form-action">
+            <button type="button" class="btn-submit" id="btnConsultar">
+              Consultar
+            </button>
+            <button
+              type="button"
+              class="btn-submit"
+              id="btnLimpar"
+              style="
+                margin-left: 10px;
+                background: linear-gradient(to right, #95a5a6, #7f8c8d);
+              "
+            >
+              Limpar
+            </button>
+          </div>
+        </form>
+
+        <h3>Clientes Cadastrados</h3>
+        <div class="table-container">
+          <table id="tabela-clientes">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CNPJ</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Responsável</th>
+                <th>Situação</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="7" class="empty-row">Nenhum cliente cadastrado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <!-- Notificação -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script/cadastro.js"></script>
+    <script src="script/home.js"></script>
+    </script>
+  </body>
+</html>
+
+
+
+
