@@ -1,0 +1,447 @@
+body {
+  margin: 0;
+  position: fixed;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+.height-header {
+  height: 2.5rem;
+  position: fixed;
+  top: 0;
+  left: 0; /* Garante que comece na borda esquerda */
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.b-shadow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.container-color {
+  background: linear-gradient(90deg, #ffdc52, #ffd21e, #fdad00, #fd8f00);
+  background-size: 400% 100%;
+  animation: moveGradient 8s linear infinite;
+  padding: 10px 10px 10px 0; /* Remove o padding da esquerda */
+}
+.d-flex {
+  display: flex;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.div-h-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 260px; /* Ajuste fino no posicionamento */
+  top: 2px;
+}
+
+.div-h-form a img {
+  width: 110px;
+  height: 60px;
+}
+
+.div-h-form a {
+  position: relative;
+  left: 1000px;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 3000;
+}
+
+.menu-icon-img {
+  width: 30px;
+  height: auto;
+  display: block;
+}
+
+/* Overlay para fechar a sidebar ao clicar fora */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar melhorada */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  overflow-x: hidden;
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  padding-top: 70px;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.open {
+  width: 280px;
+}
+
+.sidebar-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #ffdc52 0%, #fdad00 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo {
+  width: 140px;
+  height: auto;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #000000;
+  transition: all 0.3s ease;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.sidebar :hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+.sidebar a {
+  padding: 14px 25px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  margin: 5px 15px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.sidebar a i {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #ffdc52;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #080808;
+  border-left-color: #ffd52e;
+  transform: translateX(5px);
+}
+
+.sidebar a:hover i {
+  color: #ffd52e;
+}
+
+.sidebar a.active {
+  background: linear-gradient(135deg, #ffffff 0%, #d2cec8 100%);
+  border-left-color: #ffd52e;
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Dropdown melhorado */
+.dropdown-container {
+  display: none;
+  padding-left: 30px;
+  margin: 5px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown-container a {
+  font-size: 14px;
+  padding: 12px 20px;
+  margin: 3px 15px;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-container a i {
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.sidebar a.has-dropdown::after {
+  content: "\f107";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar a.has-dropdown.open::after {
+  transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Estrutura de divisão da tela */
+.split-screen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-side {
+  flex: 1;
+  background-color: #f8f9fa;
+  height: 100%;
+  overflow: auto;
+}
+
+.left-side {
+  background: f8f9fa; /* fundo branco no PDF */
+  padding: 20px;
+}
+
+#gerarPDF {
+  position: relative;
+  top: 200px;
+  right: -20px;
+}
+
+table {
+  border-collapse: collapse; /* junta as células */
+  width: 100%;
+}
+
+/* Estilos para a right-side - LAYOUT CORRIGIDO */
+.right-side {
+  flex: 1;
+  background-color: #f8f9fa;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-side-container {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.preview-header {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.preview-header h2 {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+.preview-header p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.preview-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 255);
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5px;
+}
+
+.page-navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #ffdc52 0%, #fdad00 100%);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-counter {
+  font-weight: 500;
+  color: #555;
+}
+
+.preview-container {
+  flex: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 350px;
+}
+
+th,
+td {
+  border: 1px solid #000; /* opcional, só para visualização */
+  padding: 6px;
+  text-align: left;
+}
+
+.preview-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-placeholder {
+  text-align: center;
+  color: #999;
+}
+
+.preview-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+  color: #ffdc52;
+}
+
+.preview-placeholder p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffdc52 0%, #fdad00 100%);
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.generate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(253, 173, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .preview-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .page-navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-height: 700px) {
+  .preview-container {
+    min-height: 180px;
+  }
+
+  .right-side-container {
+    gap: 15px;
+  }
+}
+
