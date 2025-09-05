@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Verificar se o usuário está na lista de autorizados e se a senha corresponde
     if (authorizedUsers.includes(username) && password === username) {
       // Login bem-sucedido - redirecionar para a página inicial
-      window.location.href = 'Home.html';
+      window.location.href = 'home.html';
     } else {
       // Login falhou - mostrar mensagem de erro
       errorMessage.style.display = 'block';
