@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Maroni - Histórico</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="cadastros.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  </head>
+  <body>
+    </head>
+  <body class="body-clientes">
+    <header class="height-header d-flex m-0 container-color b-shadow">
+      <button class="menu-icon" id="menuToggle">
+        <img src="images/menu icon.png" alt="Menu Icon" class="menu-icon-img" />
+      </button>
+      <div class="div-h-form">
+        <a href="index.html">
+          <img src="images/LogoMaroni.png" alt="LogoMaroni" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Overlay para fechar a sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="images/LogoMaroni.png" alt="LogoMaroni" class="sidebar-logo" />
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="Home.html" class="active">
+            <i class="fas fa-home"></i>Menu Inicial
+        </a>
+        <a href="#" id="dropdownCadastro" class="has-dropdown">
+            <i class="fas fa-database"></i>Cadastros
+        </a>
+        <div class="dropdown-container" id="dropdownContainer">
+            <a href="clientes.html"> <i class="fas fa-users"></i>Clientes </a>
+            <a href="Auditor.html">
+            <i class="fas fa-user-check"></i>Auditores
+            </a>
+        </div>
+        <a href="#"> <i class="fas fa-chart-bar"></i>Dashboards </a>
+        <a href="#"> <i class="fas fa-headset"></i>Suporte </a>
+        <!-- Novo item adicionado -->
+        <a href="Historico.html"> 
+            <i class="fas fa-file-alt"></i>Histórico de Relatórios
+        </a>
+    </nav>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <main class="content-container">
+        <div class="breadcrumb">
+        <a href="Home.html">Home</a> / <span>Histórico</span>
+        </div>
+
+        <!-- Upload -->
+        <div class="main-card">
+        <div class="header-card">
+            <h2>Upload de Relatórios</h2>
+        </div>
+        <form id="uploadForm" class="form-grid-clientes">
+            <div class="form-group full-width">
+            <label for="relatorioFile">Selecione o relatório em PDF</label>
+            <input type="file" id="relatorioFile" accept="application/pdf" required />
+            </div>
+            <div class="form-action">
+            <button type="submit" class="btn-submit"><i class="fas fa-upload"></i> Enviar</button>
+            </div>
+        </form>
+        </div>
+        <div class="main-card mt-20">
+          <div class="header-card">
+            <h2>Relatórios Salvos</h2>
+          </div>
+          <div class="table-container">
+            <table id="tabela-relatorios">
+              <thead>
+                <tr>
+                  <th>Nome do Arquivo</th>
+                  <th>Data de Upload</th>
+                  <th>Tamanho</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="relatorios-body">
+                <!-- Os relatórios serão inseridos aqui via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </main>
+    <script src="script/historico.js"></script>
+    <script src="script/home.js"></script>
+  </body>
+</html>
+
+
+
