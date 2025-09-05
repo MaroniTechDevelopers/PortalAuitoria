@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Inicial - Grupo Maroni</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/relatorio.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="height-header d-flex m-0 container-color b-shadow">
+      <button class="menu-icon" id="menuToggle">
+        <img src="images/menu icon.png" alt="Menu Icon" class="menu-icon-img" />
+      </button>
+      <div class="div-h-form">
+        <a href="index.html">
+          <img src="images/LogoMaroni.png" alt="LogoMaroni" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Overlay para fechar a sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="images/LogoMaroni.png" alt="LogoMaroni" class="sidebar-logo" />
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="Home.html" class="active">
+            <i class="fas fa-home"></i>Menu Inicial
+        </a>
+        <a href="#" id="dropdownCadastro" class="has-dropdown">
+            <i class="fas fa-database"></i>Cadastros
+        </a>
+        <div class="dropdown-container" id="dropdownContainer">
+            <a href="clientes.html"> <i class="fas fa-users"></i>Clientes </a>
+            <a href="Auditor.html">
+            <i class="fas fa-user-check"></i>Auditores
+            </a>
+        </div>
+        <a href="#"> <i class="fas fa-chart-bar"></i>Dashboards </a>
+        <a href="#"> <i class="fas fa-headset"></i>Suporte </a>
+        <!-- Novo item adicionado -->
+        <a href="Historico.html"> 
+            <i class="fas fa-file-alt"></i>Histórico de Relatórios
+        </a>
+    </nav>
+    </div>
+
+
+    <!-- Nova estrutura de tela dividida -->
+    <div class="split-screen">
+      <div class="left-side">
+        <div id="pagina1" class="pagina-pdf">
+          <!-- Página 1 -->
+          <div class="pdf-page">
+            <div class="div-img-grupo">
+              <img src="images/LogoMaroni.png" alt="Logo Maroni" />
+            </div>
+            <h1>Relatório de Auditoria</h1>
+            <h2 class="h2-size">1. Dados da Empresa Auditada</h2>
+            <input
+              class="box margin"
+              id="nomeEmpresaRelatorio"
+              type="text"
+              placeholder="Empresa: "
+            />
+            <input
+              class="box margin"
+              id="enderecoEmpresaRelatorio"
+              type="text"
+              placeholder="Endereço: "
+            />
+            <input
+              class="box margin"
+              id="cnpjEmpresaRelatorio"
+              type="text"
+              placeholder="CPNJ: "
+            />
+            <h2 class="h2-size">2. Dados do Auditor</h2>
+            <input
+              class="box margin"
+              id="height"
+              type="text"
+              placeholder="Nome do Auditor: "
+            />
+            <h2 class="h2-size">3. Período da Auditoria (Início e Fim)</h2>
+            <input
+              class="box margin"
+              id="height"
+              type="date"
+              placeholder="dd/mm/aaaa"
+            />
+            <input
+              class="box margin"
+              id="height"
+              type="date"
+              placeholder="dd/mm/aaaa"
+            />
+            <h2 class="h2-size">4. Objetivo da Auditoria</h2>
+            <input class="box margin height-full" type="text" />
+            <h2 class="h2-size">5. Metodologia Utilizada</h2>
+            <input class="box margin height-full" type="text" />
+            <h2 class="h2-size">6. Anexos</h2>
+            <input class="box margin" type="file" id="height-anexos" />
+            <div class="div-img-rodape">
+              <img src="images/rodapé.png" alt="Logo Maroni" />
+            </div>
+          </div>
+        </div>
+
+        <div id="pagina2" class="pagina-pdf">
+          <!-- Página 2 -->
+          <div class="pdf-page">
+            <div class="div-img-grupo">
+              <img src="images/LogoMaroni.png" alt="Rodapé" />
+            </div>
+            <h2 class="h2-size h2-click" id="questionH2-7">
+              7. Ação a ser tomada:
+              <span class="clickable-option" data-option="sim-7">( ) Sim</span>
+              <span class="clickable-option" data-option="nao-7">( ) Não</span>.
+              Nova ação?
+            </h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>O que?</th>
+                  <th>Quem?</th>
+                  <th>Quando?</th>
+                  <th>Onde?</th>
+                </tr>
+              </thead>
+              <tbody id="editableTableBody">
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+                <tr><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td><td class="free-edit"></td></tr>
+              </tbody>
+            </table>
+
+
+            <h2 class="h2-size">8. Método de reavaliação e data</h2>
+            <input
+              class="box margin m-10"
+              id="height"
+              type="date"
+              placeholder="dd/mm/aaaa"
+            />
+            <table>
+              <tbody id="clickableTableBody"> 
+                <tr>
+                  <td class="clickable">( ) Novo Checklist</td>
+                  <td class="clickable">( ) Registro por fotos</td>
+                  <td class="clickable">( ) Entrevista</td>
+                  <td class="clickable">( ) Outros</td>
+                </tr>
+              </tbody> 
+            </table>
+
+            <h2 class="h2-size h2-click" id="questionH2-9">
+              9. A solução foi eficaz
+              <span class="clickable-option" data-option="sim-9">( ) Sim</span>
+              <span class="clickable-option" data-option="nao-9">( ) Não</span>.
+              Nova ação?
+            </h2>
+            <h2 class="h2-size">10. Resultados da Auditoria</h2>
+            <input class="box margin height-full" type="text" />
+            <h2 class="h2-size">11. Conclusões e recomendações</h2>
+            <input class="box margin height-full" type="text" />
+            <h2 class="h2-size">12. Data do Relatório</h2>
+            <input
+              class="box margin"
+              id="height"
+              type="date"
+              placeholder="dd/mm/aaaa"
+            />
+          </div>
+
+          <div class="pdf-page">
+            <h2 class="h2-size">13. Concordância com os Resultados</h2>
+            <input class="box margin" type="text" placeholder="Assinatura:" />
+            <div class="div-img-rodape">
+              <img src="images/rodapé.png" alt="Logo Maroni" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+  <div class="right-side-container">
+    <div class="preview-header">
+      <h2>Pré-visualização do Relatório</h2>
+      <p>Visualize e ajuste seu relatório antes de gerar o PDF</p>
+    </div>
+    
+    <div class="preview-controls">
+      <div class="page-navigation">
+        <button id="prevPage" class="nav-btn">
+          <i class="fas fa-chevron-left"></i> Anterior
+        </button>
+        <span class="page-counter">Página <span id="currentPage">1</span> de 2</span>
+        <button id="nextPage" class="nav-btn">
+          Próxima <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="preview-container">
+      <div class="preview-content">
+        <div class="preview-placeholder">
+          <i class="fas fa-file-pdf"></i>
+          <p>Pré-visualização do relatório aparecerá aqui</p>
+        </div>
+      </div>
+    </div>
+      <button id="gerarPDF" class="generate-btn">
+        <i class="fas fa-download"></i> Baixar PDF
+      </button>
+    </div>
+  </div>
+</div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script/home.js"></script>
+  <script src="script/relatorio.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
+
+
+
+
