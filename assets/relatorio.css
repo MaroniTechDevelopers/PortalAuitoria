@@ -1,0 +1,301 @@
+/* relatorio.css */
+
+/* Estilos gerais - para garantir que os elementos se comportem de forma fluida */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  background-color: #fff;
+}
+
+form {
+  width: 100%; /* O formulário ocupa toda a largura disponível */
+  max-width: 800px; /* Define largura máxima */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.div-img-grupo,
+.div-img-rodape {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.div-img-grupo img,
+.div-img-rodape img {
+  max-width: 100%; /* Imagem nunca excede o contêiner */
+  height: auto;
+}
+
+.div-img-grupo img {
+  max-width: 250px; /* Limita tamanho máximo da imagem do grupo */
+  height: auto;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.h2-size {
+  font-size: 1.2em; /* Tamanho do título responsivo */
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.box {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.margin {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.height-full {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA TABELAS NO PDF ===== */
+.pdf-page table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  page-break-inside: avoid; /* Evita quebras de página dentro da tabela */
+}
+
+.pdf-page th,
+.pdf-page td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.pdf-page th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Garantir que as tabelas não fiquem coladas em outros elementos */
+.pdf-page h2 + table {
+  margin-top: 15px;
+}
+
+/* Estilos para as tabelas */
+table {
+  width: 100%; /* Ocupa 100% da largura do contêiner (formulário) */
+  max-width: 800px; /* Mesma largura máxima do formulário */
+  margin: 20px auto; /* Centraliza e mantém espaçamento superior/inferior */
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+th,
+td {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+input {
+  line-height: 1.5; /* aumenta a altura do texto dentro do input */
+}
+
+/* Todas as colunas das tabelas com mesma largura menor */
+#editableTableBody td,
+#editableTableBody th,
+#clickableTableBody td,
+#clickableTableBody th {
+  width: 15%; /* Largura mais estreita */
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Estilos específicos para o "Sim/Não" */
+.clickable-option {
+  cursor: pointer;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.red-x {
+  color: red;
+  font-weight: bold;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  .box,
+  table {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+  }
+
+  /* Rótulos da primeira tabela */
+  #editableTableBody td:nth-of-type(1):before {
+    content: "O que?";
+  }
+  #editableTableBody td:nth-of-type(2):before {
+    content: "Quem?";
+  }
+  #editableTableBody td:nth-of-type(3):before {
+    content: "Quando?";
+  }
+  #editableTableBody td:nth-of-type(4):before {
+    content: "Onde?";
+  }
+
+  /* Rótulos da segunda tabela */
+  #clickableTableBody td:nth-of-type(1):before {
+    content: "Opção 1";
+  }
+  #clickableTableBody td:nth-of-type(2):before {
+    content: "Opção 2";
+  }
+  #clickableTableBody td:nth-of-type(3):before {
+    content: "Opção 3";
+  }
+  #clickableTableBody td:nth-of-type(4):before {
+    content: "Opção 4";
+  }
+
+  .clickable-option {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  .box {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  td {
+    padding-left: 40%;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+
+  td:before {
+    width: 35%;
+  }
+}
+
+/* Rodapé fixo para PDF */
+.pdf-footer {
+  position: absolute;
+  bottom: 10mm;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 10mm;
+}
+
+/* Mantém estilo original */
+.box,
+table,
+h1,
+h2 {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
