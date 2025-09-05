@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Grupo Maroni</title>
+    <link rel="stylesheet" href="assets/login.css"/>
+  </head>
+  <body>
+    <div class="background-container">
+      <div class="login-container">
+        <div class="login-header">
+          <h1>Portal Auditoria</h1>
+          <p>Entre com suas credenciais para acessar o sistema</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="username">Usuário</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Digite seu usuário"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <div id="errorMessage" class="error-message">
+            Usuário ou senha incorretos. Tente novamente.
+          </div>
+
+          <button type="submit" class="login-button">Acessar</button>
+        </form>
+        <div class="divider"></div>
+        <div class="forgot-password">
+          <a href="#">Esqueceu sua senha?</a>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/login.js"></script>
+  </body>
+</html>
